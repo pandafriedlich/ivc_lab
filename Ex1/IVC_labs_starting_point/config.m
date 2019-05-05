@@ -37,6 +37,9 @@ path(path,'encoder')        % ...
 path(path,'decoder') 
 path(path,'data') 
 path(path,'data/images')
+path(path, 'expr');
+path(path, 'functions');
+
 
 
 % uncomment the next line only to keep important results in config.mat without calculating them again

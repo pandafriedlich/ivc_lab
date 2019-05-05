@@ -7,7 +7,7 @@ function mse = calcMSE(im1, im2, scaling )
         im2 = im2 * 255;
     end
     
-    mse = sum( (im1 - im2).^2, 'all')/h/w/d;
+    mse = sum(sum(sum( (im1 - im2).^2)))/h/w/d;
     
     
         
