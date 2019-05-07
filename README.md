@@ -9,4 +9,7 @@ TUM Image and Video Compression laboratory
 + all test scripts are placed under `expr\ex*`  
 + encoders are placed under `encoder`  
 + decoders are placed under `decoder`  
-  
+
+**07/05/2019** The end of Ex1.
+
+
