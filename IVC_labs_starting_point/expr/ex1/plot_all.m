@@ -1,9 +1,22 @@
 clear all;
 
-img_name = 'sail.tif';
-compression_method = 'rgbsampling';
-img = double(imread(img_name));
+bps = [12, 6, 8, 8, 8];
+psnrs = [46.2606, 26.8587, 21.2321, 17.05, 15.49];
+names = {'sail.tif - Chrominance subsampling',
+    'sail.tif - RGB-subsampling(CIF)',
+    'sail.tif - starting algorithm',
+    'smandril.tif - starting algorithm',
+    'lena.tif - starting algorithm'};
 
-[br, cr, psnr] = compression_test(img, compression_method);
-fprintf(1, "Image name: %s \ncompression method: %s \nbit-rate: %d \ncompression rate: %.3f \npsnr: %.4f dB\n", ...
-   img_name, compression_method, br, cr, psnr );
+figure;
+plot(bps, psnrs, 'o');
+xlabel("Bit per pixel");
+ylabel("PSNR/dB");
+grid on;
+axis([0, 25, 10, 50]);
+
+offset = .5;
+for i = 1:length(bps)
+    text(bps(i)+offset, psnrs(i), names(i));
+end
+

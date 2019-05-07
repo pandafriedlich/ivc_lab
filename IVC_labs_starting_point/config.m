@@ -54,8 +54,6 @@ path(path, 'functions');
 
 ID_nocompression         = 0;        % define the ID for a not compressed stream
 ID_omit                  = 1;        % define the ID for storing nothing
-ID_
-
 
 %--------------------------
 % quantization ID's
