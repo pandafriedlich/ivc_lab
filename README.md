@@ -12,4 +12,5 @@ TUM Image and Video Compression laboratory
 
 **07/05/2019** The end of Ex1.
 
+**15/05/2019** Expr 2.2 Finished.
 
