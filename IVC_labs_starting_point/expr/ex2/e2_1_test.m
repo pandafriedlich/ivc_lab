@@ -4,9 +4,9 @@ lena = double(imread('lena.tif'));
 sail = double(imread('sail.tif'));
 smandril = double(imread('smandril.tif'));
 
-pmf_lena = stats_marg(lena);
-pmf_sail = stats_marg(sail);
-pmf_smandril = stats_marg(smandril);
+pmf_lena = stats_marg(lena, true);
+pmf_sail = stats_marg(sail, true);
+pmf_smandril = stats_marg(smandril, true);
 
 H_lena = calc_entropy(pmf_lena);
 H_sail = calc_entropy(pmf_sail);
@@ -18,7 +18,7 @@ fprintf(1, "H_lena:\t %.4f bps\nH_sail:\t %.4f bps\nH_smandril:\t %.4f bps\n",..
 fprintf(1, "-------------------------------------------------------------\n");
 
 %% estimate the PMF by 3 images together
-pmf_together = stats_marg(lena, sail, smandril);
+pmf_together = stats_marg(lena, true, sail, smandril);
 
 H_lena_t = calc_entropy(pmf_lena, pmf_together);
 H_sail_t = calc_entropy(pmf_sail, pmf_together);
