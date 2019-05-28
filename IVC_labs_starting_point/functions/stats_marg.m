@@ -1,18 +1,26 @@
-function pmf = stats_marg( image )
-    % estimate PMF of an uint8 image
-    [h, w, d] = size(image);
-    if (d == 1) || (d == 3)
-        pmf = zeros(256, d);
-        for channel = 1:d
-            for intensity = 0:255
-                pmf(intensity+1 , channel) = sum(sum(image(:, :, channel) == intensity))/h/w;                
-            end
-        end
-    else 
-        error("image must be either 1-D or 3-D");
+function pmf = stats_marg( image1, force_range, varargin )
+    % estimate PMF of an uint8 image, images is a cell containing a set of 
+    % images
+       
+    % processing first image    
+    samps = image1(:);
+    
+    % processing following images, if there is any
+    n_varargin = length(varargin);    
+    for i = 1:n_varargin
+        vari = cell2mat(varargin(i));        
+        samps = [samps; vari(:)];
     end
     
-
+    if force_range
+        lb = 0; hb = 255;
+    else
+        lb = min(samps); hb = max(samps);
+    end
+    
+    pmf = hist(samps, lb:hb);
+    pmf = pmf/sum(pmf);
+    
 
 end
 
