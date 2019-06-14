@@ -11,3 +11,4 @@ path(path, 'functions');
 path(path, 'expr/ex1');
 path(path, 'expr/ex2');
 path(path, 'expr/ex3');
+path(path, 'expr/ex4');
