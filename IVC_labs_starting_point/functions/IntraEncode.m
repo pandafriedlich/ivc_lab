@@ -10,7 +10,7 @@ function dst = IntraEncode(image, qScale)
    n_blks_v = vs/8;
    n_blks_h = hs/8;
    
-   EoB = 999;
+   EoB = 1200;
    
    Y_enc = [];
    Cb_enc = [];
