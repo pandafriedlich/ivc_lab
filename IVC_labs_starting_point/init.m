@@ -12,3 +12,6 @@ path(path, 'expr/ex1');
 path(path, 'expr/ex2');
 path(path, 'expr/ex3');
 path(path, 'expr/ex4');
+path(path, 'expr/ex5');
+path(path, 'data/sequence/');
+path(path, 'data/sequence/foreman20_40_RGB');
