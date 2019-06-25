@@ -6,8 +6,8 @@ lena_small = double(imread('lena_small.tif'));
  
 
 scales = 4: -0.2 : 0.4; % quantization scale factor, for E(4-1), we just evaluate scale factor of 1
-bitPerPixel = zeros( numel(scales));
-PSNR = zeros( numel(scales));
+bitPerPixel = zeros( numel(scales), 1);
+PSNR = zeros( numel(scales), 1);
 
 for scaleIdx = 1 : numel(scales)
     qScale   = scales(scaleIdx);
@@ -36,4 +36,4 @@ for scaleIdx = 1 : numel(scales)
     fprintf('QP: %.1f bit-rate: %.2f bits/pixel PSNR: %.2fdB\n', qScale, bitPerPixel(scaleIdx), PSNR(scaleIdx))
 end
 % imshow(I_rec/255);
-plot(bitPerPixel, PSNR);
+plot(bitPerPixel, PSNR, 'bx-');

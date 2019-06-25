@@ -10,7 +10,7 @@ function dst = IntraDecode(image, img_size , qScale)
     
     dst = zeros(im_vs, im_hs, im_ch);
     
-    EoB = 1200;
+    EoB = 1999;
     n_frames_ch = (im_vs/8) * (im_hs/8);
     n_frames_v = (im_vs/8);
     n_frames_h = (im_hs/8);
@@ -50,7 +50,7 @@ function dst = IntraDecode(image, img_size , qScale)
        end
      end
      
-     dst = ictYCbCr2RGB(dst);
+     dst = round(ictYCbCr2RGB(dst));
     
 end
 
