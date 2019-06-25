@@ -30,5 +30,6 @@ function zze = ZeroRunEnc_EoB(zz, EOB)
             end
         end
     end
+%     zze = [zze, EOB];
     
 end
