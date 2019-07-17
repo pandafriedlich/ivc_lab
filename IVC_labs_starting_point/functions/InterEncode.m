@@ -1,5 +1,5 @@
-function dst = IntraEncode(image, qScale, trans)
-%  Function Name : IntraEncode.m
+function dst = InterEncode(image, qScale, trans)
+%  Function Name : InterEncode.m
 %  Input         : image (Original RGB Image)
 %                  qScale(quantization scale)
 %  Output        : dst   (sequences after zero-run encoding, 1xN)

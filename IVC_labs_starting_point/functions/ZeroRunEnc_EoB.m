@@ -25,11 +25,11 @@ function zze = ZeroRunEnc_EoB(zz, EOB)
                 prev_is_zero = 1;
                 zero_counting = 0;
             end
-            if i == zz_len
-                zze = [zze, EOB];
-            end
+%             if i == zz_len
+%                 zze = [zze, EOB];
+%             end
         end
     end
-%     zze = [zze, EOB];
+    zze = [zze, EOB];
     
 end

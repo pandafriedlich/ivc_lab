@@ -1,4 +1,4 @@
-function dst = IntraDecode(image, img_size , qScale, trans)
+function dst = InterDecode(image, img_size , qScale, trans)
 %  Function Name : IntraDecode.m
 %  Input         : image (zero-run encoded image, 1xN)
 %                  img_size (original image size)

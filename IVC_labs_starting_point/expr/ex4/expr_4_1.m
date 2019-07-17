@@ -1,18 +1,18 @@
-clear ; clc; close all;
+clear ; 
 
-lena = double(imread('lena.tif'));
+lena = double(imread('foreman0020.bmp'));
 lena_small = double(imread('lena_small.tif'));
 
  
 
-scales = 2: -0.4 : 0.2; % quantization scale factor, for E(4-1), we just evaluate scale factor of 1
+scales = 4: -0.4 : 0.2; % quantization scale factor, for E(4-1), we just evaluate scale factor of 1
 bitPerPixel = zeros( numel(scales), 1);
 PSNR = zeros( numel(scales), 1);
 
 for scaleIdx = 1 : numel(scales)
     qScale   = scales(scaleIdx);
-    k_small  = IntraEncode(lena_small, qScale);
-    k        = IntraEncode(lena, qScale);   
+    k_small  = IntraEncode(lena_small, qScale,true);
+    k        = IntraEncode(lena, qScale,true);   
     
     k_min = min(min(k_small), min(k));
     k_max = max(max(k_small), max(k));     
@@ -31,9 +31,8 @@ for scaleIdx = 1 : numel(scales)
     bitPerPixel(scaleIdx) = (numel(bytestream)*8) / (numel(lena)/3);
     
     % image reconstruction
-    I_rec = IntraDecode(k, size(lena),qScale);
+    I_rec = IntraDecode(k, size(lena),qScale,true);
     PSNR(scaleIdx) = calcPSNR(lena, I_rec, false);
     fprintf('QP: %.1f bit-rate: %.2f bits/pixel PSNR: %.2fdB\n', qScale, bitPerPixel(scaleIdx), PSNR(scaleIdx))
 end
-imshow(I_rec/255);
 plot(bitPerPixel, PSNR, 'bx-');
